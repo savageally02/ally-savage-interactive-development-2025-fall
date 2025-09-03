@@ -2,4 +2,14 @@ p{
     color:red;
     font: size 24px;
     background-color:blue;
+    background-color:yellow;
+}
+p{
+    color:black;
+    font: size 24px;
+    background-color:blue;
+    background-color:yellow;
+}
+.paragraph-group{
+    color:#aa0000;
 }
