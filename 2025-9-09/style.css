@@ -1,0 +1,47 @@
+html{
+    font-size: 7px;
+    line-height: 1.3;
+}
+
+
+body{
+    font-size: 0;
+    margin: 2.6rem;
+    margin-right:0;
+}
+
+.grid-unit{
+    vertical-align: top;
+    width:calc(25% - 2.6rem);
+    background-color:blue;
+    height: 300px;
+    display :inline-block;
+    margin-right:calc(2rem * 1.3);
+    margin-bottom: 2.6rem;
+}
+
+
+.taller{
+    height:500px;
+}
+
+.special{
+    display: inline-block;
+    height:auto;
+    background-color:red; 
+    font-size: 4rem;
+}
+
+.test-line-height{
+    background-color:red; 
+    display:block;
+    width:auto;
+    height:auto;
+    font-size:18px;
+    line-height:4;
+}
+
+.div-inside-div{
+    font-size:12px;
+    background-color: yellow;
+}
