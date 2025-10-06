@@ -1,64 +1,141 @@
 @charset "UTF-8";
-html{
-    background-color: rgb(0, 0, 0);
+
+/* Basic page styling */
+html, body {
+    height: 100%;
+    margin: 0;       /* remove default margin */
+    padding: 0;      /* remove default padding */
+    box-sizing: border-box; /* ensures sizing is exact */
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 21px;
     line-height: 1.3;
-    color: rgb(255, 255, 255);
-    font-family: 'Courier New', Courier, monospace, serif;
     text-align: center;
-    margin: 20px;
-}
-.p2 {
-  font-family: 'Courier New', Courier, monospace, serif;
-  text-transform: uppercase;
-  font-size: 25px;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin: 20px;
-  font-size: 2vw;
-}
-.color-block{
-  background-color: rgb(255, 255, 255);
-  width: 810px;
-  height: 510px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 70vw;
-  height: 45vw;
-  max-width: 700px;
-  max-height: 410px;
-  transform: translate(-50%, -50%);
-
-  z-index: 1;
-}
-.picture{
-  background-image: url('../css/completed-Images/1stpic.jpg');
-  background-size: contain;  
-  background-repeat: no-repeat;
-  background-position: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 40vw;
-  max-width: 800px;
-  max-height: 400px;
-  z-index: 2;
 }
 
-.p2 a:visited {
-  color: rgb(53, 187, 58);
+/* Container styling */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.p2 a:active {
-  color: rgb(255, 255, 255);
+/* Text styling */
+.textchange {
+    text-transform: uppercase;
+    font-size: 28px;
+    margin: 20px 0;
 }
 
+/* Image styling */
+.picture {
+    display: block;
+    margin: 20px auto;
+    width: 60%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Button styling */
+.buttonClass {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    background-color: rgb(77, 91, 215);
+    color: #fff;
+    text-decoration: solid;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.buttonClass:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+    color: rgb(77, 91, 215);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .textchange {
+        font-size: 20px;
+    }
+    .picture {
+        width: 80%;
+    }
+}
+.buttonClass {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    background-color: rgb(0, 0, 0); /* button background */
+    color: #fff; /* text color */
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid #fff; /* white border */
+    border-radius: 10px;
+    position: relative;
+    overflow: visible;
+    transition: background 0.3s, transform 0.2s, color 0.3s;
+}
+
+/* Crayon / rocky textured glow */
+.buttonClass::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 14px;
+    background:
+        radial-gradient(circle, rgba(255,255,255,0.6) 15%, transparent 16%) 0 0,
+        radial-gradient(circle, rgba(255,255,255,0.6) 15%, transparent 16%) 4px 4px;
+    background-size: 8px 8px; /* controls texture roughness */
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+/* Hover effect */
+.buttonClass:hover {
+    transform: scale(1.05);
+    background-color: rgb(82, 77, 226);
+    color: #fff;
+}
+
+/* Show textured glow on hover */
+.buttonClass:hover::before {
+    opacity: 1;
+    animation: flickerTexture 1s infinite alternate;
+}
+
+/* Flickering animation for more natural look */
+@keyframes flickerTexture {
+    0% { transform: translate(0, 0); opacity: 0.8; }
+    25% { transform: translate(1px, -1px); opacity: 0.9; }
+    50% { transform: translate(-1px, 1px); opacity: 0.7; }
+    75% { transform: translate(1px, 1px); opacity: 0.85; }
+    100% { transform: translate(0, -1px); opacity: 0.8; }
+}
 body {
-  border: 10px solid rgb(255, 255, 255);
-  min-height: 100vh;
-  box-sizing: border-box;
-  margin: 0;
+    background-color: #000;
+    /* Crayon-style multicolor polka dots */
+    background-image: 
+        radial-gradient(rgba(227, 38, 195, 0.15) 20%, transparent 21%),
+        radial-gradient(rgba(38, 227, 54, 0.15) 20%, transparent 21%),
+        radial-gradient(rgba(0, 34, 255, 0.15) 20%, transparent 21%);
+    background-size: 40px 40px, 35px 35px, 50px 50px; /* varied spacing for a natural look */
+    background-position: 0 0, 10px 20px, 20px 15px; /* slight offset for randomness */
+    background-repeat: repeat;
+    background-attachment: fixed; /* stay fixed on scroll */
+    animation: moveDots 15s linear infinite; /* slow movement for dynamic feel */
+}
+
+/* Gentle movement for a lively, playful effect */
+@keyframes moveDots {
+    0% { background-position: 0 0, 10px 20px, 20px 15px; }
+    100% { background-position: 40px 40px, 45px 55px, 60px 50px; }
 }
