@@ -11,9 +11,10 @@ html, body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 21px;
     line-height: 1.3;
-     border: 2px solid #fff;
-     border-radius: 15px;
+    border: 2px solid #fff;
+    border-radius: 15px;
     text-align: center;
+
 }
 
 /* Container styling */
@@ -41,6 +42,8 @@ html, body {
 
 /* Button styling */
 .buttonClass {
+      font-family: Ortland; 
+      src: url('../css/Ortland.ttf');
     display: inline-block;
     padding: 12px 25px;
     margin-top: 20px;
@@ -133,7 +136,7 @@ body {
     background-position: 0 0, 10px 20px, 20px 15px; /* slight offset for randomness */
     background-repeat: repeat;
     background-attachment: fixed; /* stay fixed on scroll */
-    animation: moveDots 15s linear infinite; /* slow movement for dynamic feel */
+    animation: moveDots 5s linear infinite; /* slow movement for dynamic feel */
 }
 
 /* Gentle movement for a lively, playful effect */
