@@ -1,15 +1,9 @@
 @charset "UTF-8";
 
-/* ===========================
-   ROOT VARIABLES
-=========================== */
-:root {
-  --typing-duration: 5s; /* default desktop typing speed */
-}
 
-/* ===========================
-   BASE STYLING
-=========================== */
+:root {
+  --typing-duration: 5s;
+}
 html {
   background-color: rgb(1, 17, 4);
   font-size: 14px;
@@ -48,9 +42,6 @@ body::before {
   50% { opacity: 0.8; }
 }
 
-/* ===========================
-   HEART IMAGE
-=========================== */
 .electra-heart {
   position: relative;
   display: flex;
@@ -87,9 +78,6 @@ body::before {
   }
 }
 
-/* ===========================
-   TYPEWRITER HEADER
-=========================== */
 .typewriter-container {
   display: flex;
   justify-content: center;
@@ -160,10 +148,9 @@ a:hover::after {
    PARAGRAPHS
 =========================== */
 p {
-  border: 5px outset rgb(231, 247, 103);
+  border: 1px outset rgb(231, 247, 103);
   width: 90%;
   margin: 20px auto;
-  padding: 10px;
   border-radius: 10px;
   background-color: rgba(0,0,0,0.2);
 }
@@ -200,17 +187,6 @@ ul a:hover {
   background-color: rgb(50,212,185);
   color: #000;
   box-shadow: 0 0 15px rgb(231,247,103);
-}
-
-/* ===========================
-   BOXES / DIVIDER
-=========================== */
-.box0, .box1 {
-  width: 80%;
-  height: 2px;
-  margin: 20px auto;
-  background: linear-gradient(90deg, rgb(50,212,185), rgb(231,247,103), rgb(50,212,185));
-  box-shadow: 0 0 10px rgb(231,247,103);
 }
 
 /* ===========================
@@ -264,7 +240,7 @@ body:hover {
   ul a { padding: 5px 10px; font-size: 0.9em; }
   pre, .ascii-container pre { font-size: 0.75em; line-height: 1em; }
   .box0, .box1 { width: 90%; }
-  p { width: 95%; padding: 8px; font-size: 0.9em; }
+  p { width: 95%; font-size: 0.9em; }
 }
 
 @media (max-width: 480px) {
