@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+/* General styling */
+body {
+  background-color: #390606;
+  color: #f5f5f5;
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-shadow: 0 0 8px #300;
+  position: relative;
+}
+
+/* Floating red mist animation (ambient motion) */
+.mist {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(150,0,0,0.2), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(100,0,0,0.15), transparent 60%);
+  animation: drift 40s linear infinite alternate;
+  z-index: -3;
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-10%, -10%) scale(1.2); }
+  100% { transform: translate(10%, 10%) scale(1); }
+}
+
+/* 🔪 Transparent background overlay image */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../CSS/pictures/cannibal-backsplash.jpg"); /* your transparent .jpg here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35; /* adjust transparency */
+  z-index: -2;
+  pointer-events: none; /* keeps overlay non-interactive */
+}
+
+/* Menu layout */
+.menu-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  border: 3px solid #4a0000;
+  border-radius: 10px;
+  background-color: rgba(20, 0, 0, 0.85);
+  box-shadow: 0 0 40px #1a0000;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title Animation */
+.menu-title {
+  text-align: center;
+  font-family: 'Nosifer', cursive;
+  font-size: 3.5em;
+  color: #ff3333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px #b30000, 0 0 30px #660000;
+  position: relative;
+  animation: drip 4s ease-in-out infinite alternate;
+}
+@keyframes drip {
+  0% { text-shadow: 0 0 15px #b30000, 0 0 30px #660000; transform: translateY(0px); }
+  50% { text-shadow: 0 0 25px #ff0000, 0 0 60px #990000; transform: translateY(1px); }
+  100% { text-shadow: 0 0 10px #400000, 0 0 20px #300000; transform: translateY(0px); }
+}
+
+.menu-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 1em;
+  color: #b66;
+  margin-bottom: 50px;
+}
+
+/* Each course block */
+.menu-section {
+  border-left: 4px solid #800000;
+  padding-left: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  transition: 0.3s ease;
+}
+.menu-section::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, #800000, transparent);
+}
+.menu-section:hover {
+  background-color: rgba(255, 0, 0, 0.05);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #330000;
+  border-color: #ff0000;
+}
+
+/* Course names */
+.course-name {
+  color: #ff6666;
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.course-name:hover {
+  color: #fff;
+  text-shadow: 0 0 15px #ff0000;
+}
+.course-name span {
+  color: #fff;
+  font-style: italic;
+  font-weight: normal;
+  display: block;
+  margin-top: 3px;
+}
+.course-desc {
+  color: #ddd;
+  line-height: 1.5;
+  font-size: 1.1em;
+}
+
+/* Flickering footer */
+footer {
+  text-align: center;
+  color: #884;
+  font-size: 0.9em;
+  margin-top: 50px;
+  border-top: 1px solid #330000;
+  padding-top: 15px;
+  opacity: 0.8;
+  animation: flicker 5s infinite;
+}
+footer:hover {
+  color: #b33;
+  transition: 0.3s;
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 0.8; }
+  20%, 24%, 55% { opacity: 0.4; }
+}

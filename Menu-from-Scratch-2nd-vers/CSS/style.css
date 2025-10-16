@@ -1,0 +1,156 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #f5f5f5;
+  font-family: 'Cinzel Decorative', serif;
+  overflow-x: hidden;
+  position: relative;
+  animation: backgroundPulse 15s infinite ease-in-out;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { background-color: #000; }
+  50% { background-color: #150000; }
+}
+
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 80%);
+  z-index: -2;
+}
+
+.mist-layer {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200%;
+  height: 100%;
+  background: url('../CSS/pictures/saturn-divouring-his-son-goya.jpg') repeat-x;
+  opacity: 0.08;
+  animation: drift 120s linear infinite;
+  z-index: -3;
+  filter: grayscale(100%) brightness(200%);
+}
+
+.mist-layer.second {
+  animation-duration: 180s;
+  opacity: 0.05;
+}
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.menu-container {
+  max-width: 850px;
+  margin: 80px auto;
+  padding: 50px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-title {
+  font-family: 'Nosifer', cursive;
+  color: #c67373;
+  font-size: 3.2rem;
+  margin-bottom: 0.3em;
+  text-shadow: 0 0 15px #800000, 0 0 35px #ff0000;
+  animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px #b30000, 0 0 20px #660000; }
+  50% { text-shadow: 0 0 25px #ff0000, 0 0 45px #b30000; }
+}
+
+.menu-subtitle {
+  font-style: italic;
+  color: #bbb;
+  font-size: 1.2rem;
+  margin-bottom: 2.5em;
+  opacity: 0.9;
+}
+
+.menu-section {
+  margin: 2.2em 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5em;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: sectionFade 2s forwards;
+}
+
+.menu-section:nth-child(3) { animation-delay: 0.5s; }
+.menu-section:nth-child(4) { animation-delay: 1s; }
+.menu-section:nth-child(5) { animation-delay: 1.5s; }
+.menu-section:nth-child(6) { animation-delay: 2s; }
+.menu-section:nth-child(7) { animation-delay: 2.5s; }
+.menu-section:nth-child(8) { animation-delay: 3s; }
+
+@keyframes sectionFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dish-name {
+  font-family: 'Nosifer', cursive;
+  color: #b30000;
+  font-size: 1.3rem;
+  margin-bottom: 0.4em;
+  transition: transform 0.4s ease, text-shadow 0.4s ease;
+}
+
+.dish-name:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px #b30000, 0 0 40px #ff0000;
+}
+
+.dish-desc {
+  color: #ccc;
+  line-height: 1.6;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.dish-desc:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #b30000;
+}
+
+footer {
+  margin-top: 4em;
+  font-size: 0.9rem;
+  color: #aaa;
+  font-style: italic;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+footer:hover {
+  opacity: 1;
+  color: #fff;
+  text-shadow: 0 0 8px #b30000;
+}
