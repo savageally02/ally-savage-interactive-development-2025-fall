@@ -1,0 +1,138 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0e0e0e;
+  color: #fefefe;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0px,
+    #000 10px,
+    #181818 10px,
+    #181818 20px
+  );
+  animation: treadmill 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes treadmill {
+  from { background-position: 0 0; }
+  to { background-position: 200px 0; }
+}
+
+header {
+  position: relative;
+  padding: 1rem 3vw 1rem;
+  font-size: 7vw;
+  font-weight: 900;
+  color: #f9ed69;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  z-index: 2;
+}
+
+.bpm-indicator {
+  position: fixed;
+  top: 3rem;
+  right: 5vw;
+  text-align: right;
+  color: #f9ed69;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  z-index: 3;
+}
+
+.bpm-indicator .label {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.bpm-indicator .number {
+  display: block;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.bpm-indicator .pulse {
+  width: 15px;
+  height: 15px;
+  background-color: #f9ed69;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.collection {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 5vw;
+  z-index: 2;
+}
+
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-top: 2px solid #f9ed69;
+  border-bottom: 2px solid #f9ed69;
+  text-decoration: none;
+  color: #fff;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.line-item:hover {
+  background: #f9ed69;
+  color: #000;
+  transform: scale(1.01);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.05rem;
+}
+
+.date {
+  color: inherit;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  position: relative;
+  padding: 1rem 5vw;
+  color: #666;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-align: right;
+  z-index: 2;
+}
