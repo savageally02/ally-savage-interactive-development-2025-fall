@@ -1,0 +1,111 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #391047;
+  color: #efcbff;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  text-transform: uppercase;
+  overflow-x: hidden;
+  display: block;
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #33083a 0px,
+    #33083a 12px,
+    #210f2d 12px,
+    #210f2d 24px
+  );
+  animation: treadmill 12s linear infinite;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@keyframes treadmill {
+  from { background-position: 0; }
+  to { background-position: 600px; }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  padding: 2rem 5vw;
+  background: rgba(35, 9, 41, 0.88);
+  backdrop-filter: blur(6px);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: #ff82ec;
+  border-bottom: 2px solid #ff99e6;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+#playButton {
+  padding: 0.8rem 2rem;
+  border: 2px solid #d3adff;
+  background: transparent;
+  color: #d3adff;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#playButton:hover {
+  background: #b46fad;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.poem-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  width: min(90vw, 65rem);
+  margin: 3rem auto;
+  position: relative;
+  z-index: 3;
+}
+
+.poem-line {
+  font-size: clamp(1rem, 2.8vw, 3rem);
+  letter-spacing: 0.17em;
+  opacity: 1; 
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #ffffff;
+}
+
+.poem-line span {
+  opacity: 0;
+  transform: translateY(-2rem);
+  display: inline-block;
+  transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.poem-line span.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align: right;
+  padding: 2rem 5vw;
+  font-size: 0.8rem;
+  color: #f9cbff;
+  letter-spacing: 0.12em;
+  z-index: 3;
+}

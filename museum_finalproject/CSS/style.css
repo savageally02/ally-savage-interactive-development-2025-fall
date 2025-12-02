@@ -30,14 +30,19 @@ html, body {
   z-index: 0;
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes treadmill {
   from { background-position: 0 0; }
-  to { background-position: 200px 0; }
+  to { background-position: 500px 0; }
 }
 
 header {
   position: relative;
-  padding: 1rem 3vw 1rem;
+  padding: 1rem 2vw ;
   font-size: 7vw;
   font-weight: 900;
   color: #f9ed69;
@@ -77,6 +82,18 @@ header {
   margin-left: auto;
   animation: pulse 1s infinite ease-in-out;
 }
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(.5);
+    opacity: 1;
+  }
+}
+
 
 .collection {
   position: relative;

@@ -1,133 +1,112 @@
-@charset "UTF-8";
-:root {
-  --red: #ff2b2b;
-  --white: #ffffff;
-  --bpm: 600ms; /* ~100 BPM */
-}
-
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: var(--red);
-  overflow-x: hidden;
-  color: var(--white);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100%;
+  background-color: #0a0f1a;
+  color: #e6f2ff;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  overflow-x: hidden;
+  display: block;
+  position: relative;
 }
 
-.background-grid {
+.background {
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.05) 0,
-    rgba(255, 255, 255, 0.05) 2px,
-    transparent 2px,
-    transparent 50px
+  background: repeating-linear-gradient(
+    90deg,
+    #07101c 0px,
+    #07101c 12px,
+    #0f1b2d 12px,
+    #0f1b2d 24px
   );
-  pointer-events: none;
+  animation: treadmill 12s linear infinite;
   z-index: 0;
-  animation: gridShift 8s linear infinite;
+  opacity: 0.4;
 }
 
-@keyframes gridShift {
-  from { background-position: 0 0; }
-  to { background-position: -100px 0; }
+@keyframes treadmill {
+  from { background-position: 0; }
+  to { background-position: 600px; }
 }
 
-.container {
-  position: relative;
-  z-index: 1;
+header {
+  position: sticky;
+  top: 0;
+  padding: 2rem 5vw;
+  background: rgba(10,15,26,0.88);
+  backdrop-filter: blur(6px);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: #8fc6ff;
+  border-bottom: 2px solid #8fc6ff;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 5vw;
-  gap: 15vh;
+  gap: 1.5rem;
+  text-align: center;
 }
 
-.intro {
-  text-align: left; 
-  width: 100%;
-  margin-bottom: 5vh;
-}
-
-.beat-text {
-  font-size: clamp(5rem, 10vw, 12rem); 
-  line-height: 1;
-  margin: 0;
-  animation: pulse var(--bpm) ease-in-out infinite alternate;
-  font-weight: 800;
-  text-align: left; 
-}
-
-.sub {
+#playButton {
+  padding: 0.8rem 2rem;
+  border: 2px solid #8fc6ff;
+  background: transparent;
+  color: #8fc6ff;
+  font-weight: bold;
   font-size: 1rem;
-  letter-spacing: 0.3em;
-  margin-top: 2rem;
-  opacity: 0.8;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#playButton:hover {
+  background: #8fc6ff;
+  color: #0a0f1a;
+  transform: scale(1.05);
 }
 
-.content {
+.poem-container {
   display: flex;
   flex-direction: column;
-  gap: 25vh;
-  width: 100%;
+  gap: 6rem;
+  width: min(90vw, 65rem);
+  margin: 3rem auto;
+  position: relative;
+  z-index: 3;
 }
 
-.text-pair {
+.poem-line {
+  font-size: clamp(1rem, 2.8vw, 3rem);
+  letter-spacing: 0.17em;
+  opacity: 1; 
+  text-align: center;
+  line-height: 1.5;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #9ad6ff;
 }
 
-.word {
-  font-size: clamp(6rem, 15vw, 18rem);
-  font-weight: 900;
-  text-align: left;
-  line-height: 1;
-  transform: scale(0.95);
+.poem-line span {
   opacity: 0;
-  flex: 1;
+  transform: translateY(-2rem);
+  display: inline-block;
+  transition: opacity 0.8s ease, transform 1.2s ease;
 }
 
-.word.active {
-  animation: bounce var(--bpm) ease-in-out forwards;
+.poem-line span.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.reflection {
-  flex: 1;
+footer {
   text-align: right;
-  font-size: clamp(0.8rem, 1.2vw, 1rem);
-  letter-spacing: 0.05em;
-  opacity: 0;
-  line-height: 1.6;
-  text-transform: none;
-  max-width: 40ch;
-  align-self: flex-start;
-  padding-right: 0vw; 
-  transform: translateX(10vw);
-}
-
-.reflection.active {
-  animation: fadeIn 1s ease forwards;
-}
-
-/* ANIMATIONS */
-@keyframes pulse {
-  from { transform: scale(1); opacity: 0.85; }
-  to { transform: scale(1.05); opacity: 1; }
-}
-
-@keyframes bounce {
-  0%   { transform: translateY(100px) scale(0.9); opacity: 0; }
-  50%  { transform: translateY(-40px) scale(1.1); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  padding: 2rem 5vw;
+  font-size: 0.8rem;
+  color: #7da6c8;
+  letter-spacing: 0.12em;
+  z-index: 3;
 }
