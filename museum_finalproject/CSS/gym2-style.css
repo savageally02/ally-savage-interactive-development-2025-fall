@@ -20,7 +20,7 @@ html, body {
     #2d130f 12px,
     #2d130f 24px
   );
-  animation: treadmill 12s linear infinite;
+  animation: treadmill 12s linear infinite; 
   z-index: 0;
   opacity: 0.4;
 }

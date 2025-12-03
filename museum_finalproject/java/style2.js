@@ -38,4 +38,8 @@ $(document).ready(function () {
   function resetPoem() {
     $('.poem-line span').removeClass('active');
   }
+
 });
+
+
+
